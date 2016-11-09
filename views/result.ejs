@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+
+    <h1>Scrape Plans</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Data Size</th>
+          <th>Data Amount</th>
+          <th>Data Promo</th>
+          <th>Data Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.forEach(results.data_plans, function(value) { %>
+          <tr>
+            <th scope="row"><%= value.data_sku %></th>
+            <td><%= value.data_size %></td>
+            <td><%= value.data_amount %><%= value.data_type %></td>
+            <td><%= value.data_promo %></td>
+            <td>$<%= value.data_price %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+
+<% include ./partials/footer %>
