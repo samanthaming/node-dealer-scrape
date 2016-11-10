@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var _ = require("lodash");
+var moment = require('moment');
 
 // var db = require('./db');
 // var verizonDB = require('./models/verizon');
@@ -17,6 +18,7 @@ var app = express();
 
 // App Locals
 app.locals._ = _;
+app.locals.moment = moment;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

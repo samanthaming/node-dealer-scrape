@@ -9,7 +9,6 @@ var request = require('request');
 var cheerio = require('cheerio');
 var jsdom = require("jsdom");
 var _ = require("lodash");
-var async = require('async');
 
 var Verizon = require('../models/verizon');
 
@@ -40,6 +39,7 @@ router.post('/', function (req, res, next) {
         });
 
           res.send(scrapeJson); 
+             res.redirect('/result'); 
         }
       });
     }

@@ -6,6 +6,8 @@ var cheerio = require('cheerio');
 var jsdom = require("jsdom");
 var _ = require("lodash");
 
+var Verizon = require('../models/verizon');
+
 /**
  * Get the Keys from Scraped Json data
  * @param {Json} jsonData {"data_plans": [{}]}
@@ -16,49 +18,27 @@ function _tableHeaders(jsonData) {
   return Object.keys(jsonData.data_plans[0]);
 }
 
-
-/* GET users listing. */
+/* GET results (index) */
 router.get('/', function (req, res, next) {
 
-  url = 'https://www.verizonwireless.com/plans/verizon-plan/';
+  Verizon.
+    find({}).
+    sort({ createdAt: -1 }).
+    select('createdAt').
+    exec(function (err, verizons) {
+      res.render('results', { plans: verizons });
+    });
+});
 
-  request(url, function (error, response, html) {
 
-    if (!error) {
-      jsdom.env({
-        url: url,
-        scripts: ["http://code.jquery.com/jquery.js"],
-        done: function (err, window) {
-          var $ = window.$;
-          var scrapeJson = {};
-          var scrape = $('.htmlscript script').eq(4).text();
-          var scrapePreJson = scrape.split('= ')[1].split(';')[0];
-          var scrapeJson = JSON.parse(scrapePreJson);
+/* GET result (one) */
+router.get('/:id', function (req, res, next) {
 
-          var tableHeaders = _tableHeaders(scrapeJson);
+  Verizon.findById(req.params.id, function(err, verizon) {
+    if (err) throw err;
 
-          res.render('result', { results: scrapeJson, tableHeaders: tableHeaders }); 
-        }
-      });       
-    }    
+    res.render('result', { plan: verizon });
   });
-
-  /**
-   * CHEERIO METHOD
-   */
-  // url = 'https://www.verizonwireless.com/plans/verizon-plan/';
-
-  // request(url, function(error, response, html){
-  //   if(!error){
-  //     var $ = cheerio.load(html);
-     
-  //     var scrape = $('.htmlscript script').eq(4).text();
-  //     var scrapePreJson = scrape.split('= ')[1].split(';')[0];
-  //     var scrapeJson = JSON.parse(scrapePreJson);
-  //   }
-
-  //   res.send(scrapeJson);
-  // }); 
 
 });
 

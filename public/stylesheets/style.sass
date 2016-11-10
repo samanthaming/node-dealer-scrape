@@ -1,6 +1,43 @@
-body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+$green: #00B796
+$blue: #00D2F1
+$grey: #7F7F7F
+$purple: #86269B
+$orange: #FE9601
+$red: #CC0063
+$yellow: #FFC600
+$black: #000000
 
-a
-  color: #00B7FF
+body 
+  padding: 50px
+  font-family: 'Raleway', sans-serif
+
+.box-list 
+  a:hover
+    text-decoration: none
+
+.box 
+  background: $yellow
+  color: white
+  height: 200px
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  font-size: 18px
+  transition: all 0.2s linear
+  background-size: 100% 200%
+  background-image: linear-gradient(to bottom, $black 50%, $yellow 50%)
+
+  &:hover 
+    background-position: 0 -100%
+      
+.page-header
+  
+  letter-spacing: 10px
+  padding-bottom: 50px
+
+  .text-center
+    text-align: center
+    line-height: 1
+    font-size: 80px
+ 

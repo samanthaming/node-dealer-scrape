@@ -1,8 +1,31 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font-family: 'Raleway', sans-serif; }
 
-a {
-  color: #00B7FF; }
+.box-list a:hover {
+  text-decoration: none; }
+
+.box {
+  background: #FFC600;
+  color: white;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+  transition: all 0.2s linear;
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, #000000 50%, #FFC600 50%); }
+  .box:hover {
+    background-position: 0 -100%; }
+
+.page-header {
+  letter-spacing: 10px;
+  padding-bottom: 50px; }
+  .page-header .text-center {
+    text-align: center;
+    line-height: 1;
+    font-size: 80px; }
 
 /*# sourceMappingURL=style.css.map */
