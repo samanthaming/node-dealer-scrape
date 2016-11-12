@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var _ = require("lodash");
 var moment = require('moment');
+var Agenda = require('agenda');
+var Agendash = require('agendash');
 
 // var db = require('./db');
 // var verizonDB = require('./models/verizon');
@@ -16,6 +18,9 @@ var scrape = require('./routes/scrape');
 var compare = require('./routes/compare');
 
 var app = express();
+
+// Agenda 
+var agenda = require('./jobs');
 
 // App Locals
 app.locals._ = _;
@@ -43,6 +48,7 @@ app.use('/', index);
 app.use('/result', result);
 app.use('/scrape', scrape);
 app.use('/compare', compare);
+app.use('/agendash', Agendash(agenda));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
