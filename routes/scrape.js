@@ -34,12 +34,10 @@ router.post('/', function (req, res, next) {
 
           newVerizon.save(function(err) {
           if (err) throw err;
-
           console.log('User created!');
-        });
-
-          res.send(scrapeJson); 
-             res.redirect('/result'); 
+          });
+          
+          res.redirect('/result'); 
         }
       });
     }

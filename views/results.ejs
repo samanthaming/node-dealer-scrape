@@ -1,5 +1,13 @@
 <% include ./partials/header %>
 
+<div class="body-wrap">
+
+  <div class="container">
+    <div class="header text-right">
+      <a href="#" class="btn btn-primary compare-link">Compare</a>
+    </div>
+  </div>  
+
   <div class="container">
     <div class="page-header">
       <h1 class="text-center">Scrape Results</h1>
@@ -12,8 +20,13 @@
         <div class="col-sm-3">
             <a href="/result/<%= plan._id %>">
               <div class="box">
+                  
                   <div><%= moment(plan.createdAt).format('MMM Do YYYY') %></div>
                   <div><%= moment(plan.createdAt).format('h:mm:ss a') %></div>
+              </div>
+
+              <div class="compare">
+                <label class="csscheckbox csscheckbox-primary"><input type="checkbox" value="<%= plan._id %>"><span></span></label>
               </div>
             </a>
         </div>
@@ -21,14 +34,17 @@
     </div>
   </div>
 
-  <div class="container" style="margin-top: 50px;">
-    <div class="row">
-      <div class="col-sm-12">
-        <form action="/scrape" method="POST"> 
-          <input type="submit" value="Scrape">
-        </form>
-      </div>
+</div><!-- .body-wrap -->
+
+<div class="container container-footer" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <form action="/scrape" method="POST"> 
+        <input type="submit" value="Scrape">
+      </form>
     </div>
   </div>
-    
+</div>
+
+<script type="text/javascript" src="/javascripts/plans-compare.js"></script>    
 <% include ./partials/footer %>

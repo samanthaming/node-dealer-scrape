@@ -1,0 +1,77 @@
+<% include ./partials/header %>
+<div class="body-wrap">
+
+  <div class="header">
+    <a href="/result">Back</a>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="text-center">Compare Plans</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row compare-plan-bar">
+      <div class="col-xs-6 plan-a">
+        <span class="color-pat"></span>
+        <span>Plan A</span> 
+        <span><%= moment(planA).format('MMM Do YYYY') %></span>
+        <span class="hidden-sm-down"><%= moment(planA).format('h:mm:ss a') %></span>
+      </div>
+      <div class="col-xs-6 plan-b">
+        <span class="color-pat"></span>
+        <span>Plan B</span> 
+        <span><%= moment(planB).format('MMM Do YYYY') %></span>
+        <span class="hidden-sm-down"><%= moment(planB).format('h:mm:ss a') %></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class="table compare-table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Sku</th>
+          <th>A: Size</th>
+          <th>B: Size</th>
+          <th>A: Amount</th>
+          <th>B: Amount</th>
+          <th>A: Promo</th>
+          <th>B: Promo</th>
+          <th>A: Price</th>
+          <th>B: Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.forEach(skus, function(sku) { %>
+          <tr <% if(
+            combinedPlans[sku].planA.data_size !== combinedPlans[sku].planB.data_size ||
+            combinedPlans[sku].planA.data_promo !== combinedPlans[sku].planB.data_promo ||
+            combinedPlans[sku].planA.data_price !== combinedPlans[sku].planB.data_price) {%>
+            class="plan-different" 
+          <% } %>>
+            <th scope="row"><%= sku %></th>
+            <td class="plan-a"><%= combinedPlans[sku].planA.data_size %></td>
+            <td class="plan-b"><%= combinedPlans[sku].planB.data_size %></td>
+            <td class="plan-a">
+              <%= combinedPlans[sku].planA.data_amount %>
+              <%= combinedPlans[sku].planA.data_type %>
+            </td>
+            <td class="plan-b">
+              <%= combinedPlans[sku].planB.data_amount %>
+              <%= combinedPlans[sku].planB.data_type %>
+            </td>
+            <td class="plan-a"><%= combinedPlans[sku].planA.data_promo %></td>
+            <td class="plan-b"><%= combinedPlans[sku].planB.data_promo %></td>
+            <td class="plan-a">$<%= combinedPlans[sku].planA.data_price %></td>
+            <td class="plan-b">$<%= combinedPlans[sku].planB.data_price %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end .body-wrap -->
+
+<% include ./partials/footer %>

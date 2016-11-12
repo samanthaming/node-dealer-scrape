@@ -13,6 +13,7 @@ var moment = require('moment');
 var index = require('./routes/index');
 var result = require('./routes/result');
 var scrape = require('./routes/scrape');
+var compare = require('./routes/compare');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/result', result);
 app.use('/scrape', scrape);
+app.use('/compare', compare);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
