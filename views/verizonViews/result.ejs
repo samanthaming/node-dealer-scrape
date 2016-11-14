@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+<div class="body-wrap">
+  
+  <div class="container-fluid">
+    <div class="col-xs-12">
+      <div class="header">
+        <a href="/verizon/result">Back</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="text-center">Scrape Results</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Data Size</th>
+          <th>Data Amount</th>
+          <th>Data Promo</th>
+          <th>Data Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.forEach(plan.data_plans, function(value) { %>
+          <tr>
+            <th scope="row"><%= value.data_sku %></th>
+            <td><%= value.data_size %></td>
+            <td><%= value.data_amount %><%= value.data_type %></td>
+            <td><%= value.data_promo %></td>
+            <td>$<%= value.data_price %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div><!-- END .body-wrap -->
+
+<% include ../partials/footer %>

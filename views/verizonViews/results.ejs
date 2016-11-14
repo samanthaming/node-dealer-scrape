@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+
+<div style="display: none;" id="route-folder">verizon</div>  
+
+
+<div class="body-wrap">  
+
+  <div class="container-fluid">
+    <div class="col-xs-6">
+      <div class="header">
+        <a href="/">Home</a>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="header text-right">
+        <a href="#" class="btn btn-primary compare-link">Compare</a>
+      </div>
+    </div>    
+  </div>  
+
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="text-center">Scrape Results</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row box-list">     
+      <% _.forEach(plans, function(plan) { %>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+            <a href="/verizon/result/<%= plan._id %>">
+              <div class="box">
+                  
+                  <div><%= moment(plan.createdAt).format('MMM Do YYYY') %></div>
+                  <div><%= moment(plan.createdAt).format('h:mm:ss a') %></div>
+              </div>
+
+              <div class="compare">                         
+                <label class="csscheckbox csscheckbox-primary"><input type="checkbox" value="<%= plan._id %>"><span></span></label>
+              </div>
+            </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+</div><!-- .body-wrap -->
+
+<div class="container container-footer" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <form action="/verizon/scrape" method="POST"> 
+        <input type="submit" value="Scrape">
+      </form>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="/javascripts/plans-compare.js"></script>    
+<% include ../partials/footer %>

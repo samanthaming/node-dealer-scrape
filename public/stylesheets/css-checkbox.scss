@@ -1,0 +1,53 @@
+.csscheckbox{
+    /*margin:1px 4px;*/
+    padding:7px 0;
+    position:relative;
+    cursor:pointer;
+    display:inline-block;
+    vertical-align:middle
+}
+.csscheckbox input{
+    position:absolute;
+    opacity:0
+}
+.csscheckbox span{
+    position:relative;
+    display:inline-block;
+    width:50px; height:50px;
+    border-radius:50%;//IE 11
+    -moz-border-radius:50%; //Mozilla
+    -webkit-border-radius:50%; //Chrome and Safari
+    background:rgba(250,250,250,.25);
+    border:1px solid $blue;
+}
+.csscheckbox span:hover{
+  background:rgba(250,250,250,.75)
+}
+.csscheckbox span:after{
+    content:"";
+    position:absolute;
+    top:3px;
+    right:3px;
+    bottom:3px;
+    left:3px;
+    border-radius:50%;
+    background-color:#fff;
+    opacity:0;
+    -webkit-transition:all .15s ease-out;
+    transition:all .15s ease-out;
+    -webkit-transform:scale(.5);
+    transform:scale(.5);
+    -webkit-box-shadow: 0 2px 5px #999999;
+    box-shadow: 0px 1px 5px #999999;
+}
+
+.csscheckbox input:checked+span:after{
+    opacity:1;
+    -webkit-transform:scale(1);
+    transform:scale(1);
+    background-color:#eee
+}
+
+//Different Color Combinations
+.csscheckbox-default input:checked+span:after{background-color:#dae0e8}
+.csscheckbox-primary input:checked+span:after{background-color:$blue}

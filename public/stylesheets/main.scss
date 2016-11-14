@@ -1,0 +1,107 @@
+ /* ------------------------
+    Layout
+ ------------------------ */
+body{
+  font-family: 'Raleway', sans-serif;
+} 
+
+/* ------------------------
+  Results Page
+------------------------ */
+.box-list{
+  a:hover{
+    text-decoration: none;
+  }
+} 
+
+.box{ 
+  background: $yellow;
+  color: white;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+  transition: all 0.2s linear;
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, $black 50%, $yellow 50%);
+
+  &:hover{ 
+    background-position: 0 -100%;
+  }  
+}
+.compare{
+  text-align: center
+}
+
+.page-header{
+  
+  letter-spacing: 10px;
+  padding-bottom: 50px;
+
+  .text-center{
+    text-align: center;
+    line-height: 1;
+    font-size: 80px;
+  }
+}
+
+.body-wrap {
+  height: 90vh;
+  padding: 50px;
+}  
+ /* ------------------------
+    Compare Page
+ ------------------------ */
+$plan-a-color: rebeccaPurple;
+$plan-b-color: cornflowerBlue;
+
+.compare-plan-bar {
+  margin-bottom: 20px;
+
+  .color-pat {
+    height: 30px; width: 30px;
+    display:inline-block;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  span {
+    margin-right: 8px;
+  }
+
+  .plan-a, .plan-b {
+    display:flex;
+    justify-content: center;
+
+    span{
+      line-height: 30px;
+      height: 30px;
+    }
+  }
+
+  .plan-a {
+    color: $plan-a-color;
+    .color-pat {background: $plan-a-color;}
+  }
+
+  .plan-b {
+    color: $plan-b-color;
+    .color-pat {background: $plan-b-color;}
+  }
+}
+
+.compare-table {
+
+  .plan-different{
+    background: lightPink;
+  } 
+  .plan-a{
+    color: $plan-a-color;
+  }  
+  .plan-b{
+    color: $plan-b-color;
+  }
+}
