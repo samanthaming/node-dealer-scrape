@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 var jsdom = require("jsdom");
 var _ = require("lodash");
 
-var Verizon = require('../models/verizon');
+var Verizon = require('../../models/verizon');
 
 /**
  * Get the Keys from Scraped Json data
@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
     sort({ createdAt: -1 }).
     select('createdAt').
     exec(function (err, verizons) {
-      res.render('results', { plans: verizons });
+      res.render('verizonViews/results', { plans: verizons });
     });
 });
 
@@ -37,7 +37,7 @@ router.get('/:id', function (req, res, next) {
   Verizon.findById(req.params.id, function(err, verizon) {
     if (err) throw err;
 
-    res.render('result', { plan: verizon });
+    res.render('verizonViews/result', { plan: verizon });
   });
 
 });

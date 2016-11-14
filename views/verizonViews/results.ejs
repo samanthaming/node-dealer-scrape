@@ -1,4 +1,7 @@
-<% include ./partials/header %>
+<% include ../partials/header %>
+
+<div style="display: none;" id="route-folder">verizon</div>  
+
 
 <div class="body-wrap">  
 
@@ -26,14 +29,14 @@
     <div class="row box-list">     
       <% _.forEach(plans, function(plan) { %>
         <div class="col-xs-6 col-sm-4 col-md-3">
-            <a href="/result/<%= plan._id %>">
+            <a href="/verizon/result/<%= plan._id %>">
               <div class="box">
                   
                   <div><%= moment(plan.createdAt).format('MMM Do YYYY') %></div>
                   <div><%= moment(plan.createdAt).format('h:mm:ss a') %></div>
               </div>
 
-              <div class="compare">
+              <div class="compare">                         
                 <label class="csscheckbox csscheckbox-primary"><input type="checkbox" value="<%= plan._id %>"><span></span></label>
               </div>
             </a>
@@ -47,7 +50,7 @@
 <div class="container container-footer" style="margin-top: 50px;">
   <div class="row">
     <div class="col-sm-12">
-      <form action="/scrape" method="POST"> 
+      <form action="/verizon/scrape" method="POST"> 
         <input type="submit" value="Scrape">
       </form>
     </div>
@@ -55,4 +58,4 @@
 </div>
 
 <script type="text/javascript" src="/javascripts/plans-compare.js"></script>    
-<% include ./partials/footer %>
+<% include ../partials/footer %>

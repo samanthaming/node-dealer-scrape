@@ -6,11 +6,10 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/scrape_app');
 
 var request = require('request');
-var cheerio = require('cheerio');
 var jsdom = require("jsdom");
 var _ = require("lodash");
 
-var Verizon = require('../models/verizon');
+var Verizon = require('../../models/verizon');
 
 
 router.post('/', function (req, res, next) {
@@ -37,7 +36,7 @@ router.post('/', function (req, res, next) {
           console.log('User created!');
           });
           
-          res.redirect('/result'); 
+          res.redirect('/verizon/result'); // TODO: when we add other scrape, we need to make it work for all
         }
       });
     }

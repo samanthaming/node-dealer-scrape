@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var _ = require("lodash");
 
-var Verizon = require('../models/verizon');
+var Verizon = require('../../models/verizon');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -65,7 +65,7 @@ router.get('/', function (req, res, next) {
       };
     });
 
-    res.render('compare', {
+    res.render('verizonViews/compare', {
       combinedPlans: combined,
       skus: keys,
       planA: array1.createdAt,
