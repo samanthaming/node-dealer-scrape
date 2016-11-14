@@ -1,12 +1,20 @@
 <% include ./partials/header %>
 
-<div class="body-wrap">
+<div class="body-wrap">  
 
-  <div class="container">
-    <div class="header text-right">
-      <a href="#" class="btn btn-primary compare-link">Compare</a>
+  <div class="container-fluid">
+    <div class="col-xs-6">
+      <div class="header">
+        <a href="/">Home</a>
+      </div>
     </div>
+    <div class="col-xs-6">
+      <div class="header text-right">
+        <a href="#" class="btn btn-primary compare-link">Compare</a>
+      </div>
+    </div>    
   </div>  
+
 
   <div class="container">
     <div class="page-header">
@@ -17,7 +25,7 @@
   <div class="container">
     <div class="row box-list">     
       <% _.forEach(plans, function(plan) { %>
-        <div class="col-sm-3">
+        <div class="col-xs-6 col-sm-4 col-md-3">
             <a href="/result/<%= plan._id %>">
               <div class="box">
                   

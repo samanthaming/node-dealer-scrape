@@ -18,7 +18,7 @@
     -moz-border-radius:50%; //Mozilla
     -webkit-border-radius:50%; //Chrome and Safari
     background:rgba(250,250,250,.25);
-    border:1px solid #dae0e8
+    border:1px solid $blue;
 }
 .csscheckbox span:hover{
   background:rgba(250,250,250,.75)

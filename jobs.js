@@ -27,7 +27,7 @@ agenda.define('scrape verizon', function (job, done) {
 
       newVerizon.save(function(err) {
       if (err) throw err;
-      console.log('User created!');
+        console.log('Verizon scraped!');
       });
     }
   });

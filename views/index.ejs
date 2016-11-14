@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome toooo <%= title %></p>
-  </body>
-</html>
+<% include ./partials/header %>
+<div class="body-wrap">
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="text-center">Scrape</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row box-list">     
+      <div class="col-sm-3">
+          <a href="/result">
+            <div class="box">
+                <div>Verizon</div>
+            </div>
+
+          </a>
+      </div>
+    </div>
+  </div>  
+
+
+</div><!-- END .body-wrap -->
+
+<% include ./partials/footer %>
